@@ -12,13 +12,17 @@
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
 
-  <body>
+  <body class="bg-gra-01">
+      <?php require 'partials/header.php' ?>
 
-    <?php require 'partials/header.php' ?>
+      <h1 class="index">Aprende ingles de forma divertida en Realidad Virtual</h1>
 
-    <h1>Pagina Principal</h1>
-    <a href="login.php">Ingresar</a> or
-    <a href="signup.php">Registrarse</a>
+      <div>
+        <a href="login.php" class="intro">Ingresar</a>
+        <a href="signup.php" class="intro">Registrarse</a>
+      </div>
+      
+      <img class="intro" src="imagenes/gafas_vr.jpg">  
 
   </body>
   

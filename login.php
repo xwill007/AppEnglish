@@ -59,7 +59,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
 
-  <body>
+  <body class="bg-gra-01">
     <?php require 'partials/header.php' ?>
 
     <h1>Ingresar</h1>

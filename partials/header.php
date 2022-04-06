@@ -1,3 +1,3 @@
 <header>
-  <a href="index.php">English APP inicio.</a>
+  <a href="index.php">VR English APP inicio.</a>
 </header>

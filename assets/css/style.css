@@ -34,7 +34,7 @@ input[type="submit"]:hover {
 
 /* Header */
 header {
-  border-bottom: 2px solid rgb(97, 94, 94);
+  border-bottom: 2px solid rgb(12, 154, 248);
   padding: 20px 0;
   margin-bottom: 10px;
   width: 100%;
@@ -42,5 +42,30 @@ header {
 }
 header a {
   text-decoration: none;
-  color: #333;
+  color:rgb(52, 24, 206);
+  
 }
+
+.bg-gra-01 {
+  background: linear-gradient(to top, #0e0864 0%, #000000 100%);
+}
+
+h1.index{
+  color:rgb(92, 66, 240);
+  margin-bottom: 3%;
+}
+
+a.intro{
+  color:rgb(175, 18, 18);
+  padding: 1%;
+  font-size: 150%;
+  border: 1px solid rgb(12, 154, 248);
+  margin-left: 4%;
+  margin-top: 3%;
+}
+
+img.intro{
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+

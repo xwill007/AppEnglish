@@ -29,7 +29,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
-  <body>
+
+  <body class="bg-gra-01">
 
     <?php require 'partials/header.php' ?>
 
