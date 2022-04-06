@@ -5,6 +5,7 @@ define("HOST","localhost");
 define("USER","root");
 define("PASS","");
 define("DB","db_app_english");
+
 function conexionDB(){
   $enlace = new mysqli(HOST,USER,PASS,DB);
   if($enlace->connect_error){

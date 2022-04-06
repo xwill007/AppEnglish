@@ -50,7 +50,7 @@ header a {
   background: linear-gradient(to top, #0e0864 0%, #000000 100%);
 }
 
-h1.index{
+h1{
   color:rgb(92, 66, 240);
   margin-bottom: 3%;
 }
@@ -69,3 +69,6 @@ img.intro{
   margin-bottom: 3%;
 }
 
+p.mensaje{
+  color:rgb(243, 16, 16);  
+}

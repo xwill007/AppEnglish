@@ -15,7 +15,7 @@
   <body class="bg-gra-01">
       <?php require 'partials/header.php' ?>
 
-      <h1 class="index">Aprende ingles de forma divertida en Realidad Virtual</h1>
+      <h1>Aprende ingles de forma divertida en Realidad Virtual</h1>
 
       <div>
         <a href="login.php" class="intro">Ingresar</a>

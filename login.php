@@ -29,8 +29,8 @@
   }
   require 'database.php';
 
-  if (!empty($_POST['email']) && !empty($_POST['password'])) {
-    $records = $conn->prepare('SELECT id, email, password FROM users WHERE email = :email');
+  if (!empty($_POST['email']) && !empty($_POST['pass'])) {
+    $records = $conn->prepare('SELECT email,password,id FROM users WHERE email = :email');
     $records->bindParam(':email', $_POST['email']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
@@ -38,7 +38,7 @@
     $message = '';
 
     //if (count($results) > 0 && password_verify($_POST['password'], $results['password'])) {
-      if (count($results) > 0) {
+    if (count($results) > 0 && ($_POST['pass']==$results['password']) ){
       $_SESSION['user_id'] = $results['id'];
       header("Location: /AppEnglish/inicio.php");
       $message = 'ingreso exitoso';
@@ -63,15 +63,11 @@
     <?php require 'partials/header.php' ?>
 
     <h1>Ingresar</h1>
-    <span> o <a href="signup.php">Registrate</a></span>
-
-    <?php if(!empty($message)): ?>
-      <p> <?= $message ?></p>
-    <?php endif; ?>
+    <a href="signup.php">Registrate</a>
 
     <form action="login.php" method="POST">
       <input name="email" type="text" placeholder="Ingresar email">
-      <input name="password" type="password" placeholder="Ingresar Password">
+      <input name="pass" type="password" placeholder="Ingresar Password">
       <input type="submit" value="Ingresar">
     </form>
 
