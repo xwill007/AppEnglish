@@ -23,6 +23,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
 </head>
 
@@ -30,13 +31,7 @@
 
     <?php require 'partials/header.php' ?>
 
-    <?php if(!empty($user)): ?>
-    <br> Welcome. <?= $user['name']; ?>
-    <br>You are Successfully Logged In
-    <a href="logout.php">
-        Logout
-    </a>
-    <?php else: ?>
+    <?php if(empty($user)): ?>
         <h1>Por favor inicie sesion</h1>
         <a href="login.php">Ingresar</a> or
         <a href="signup.php">Registrarse</a>

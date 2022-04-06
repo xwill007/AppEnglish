@@ -35,15 +35,35 @@ input[type="submit"]:hover {
 /* Header */
 header {
   border-bottom: 2px solid rgb(12, 154, 248);
-  padding: 20px 0;
-  margin-bottom: 10px;
   width: 100%;
   text-align: center;
+  padding-top: 0.6%;
+  padding-bottom: 1.5%;
+  margin-top: 0.5%;
 }
+
 header a {
   text-decoration: none;
-  color:rgb(52, 24, 206);
-  
+  color:rgb(76, 47, 241);
+  padding: 0.2%;
+}
+
+a.left{
+  float: left;
+  margin-left: 1%;
+  border: 2px solid rgb(12, 154, 248);
+}
+
+a.rigth{
+  float: right;
+  margin-right: 3%;
+  border: 2px solid rgb(12, 154, 248);
+}
+
+strong.welcome{
+  border: 2px solid rgb(12, 154, 248); 
+  font-size: large;
+  padding: 0.5%;
 }
 
 .bg-gra-01 {
