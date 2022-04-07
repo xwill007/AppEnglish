@@ -1,5 +1,6 @@
 <header>
   <a class="left" href="index.php">Inicio.</a>
+  <a class="left" href="vr360.php">vr360.</a>
 
   <?php if(!empty($user)): ?>
     <strong class="welcome"> Welcome <?= $user['name']; ?> </strong>
