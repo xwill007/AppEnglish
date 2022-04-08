@@ -1,9 +1,11 @@
-
+<?php
+  
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>VR360</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,89 +51,55 @@
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
         <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
         <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+        <video id="fondo_universo" src="video/video_fondo.mp4" autoPlay="true" rotation="90 0 0"></video>
       </a-assets>
 
       <!--360 Fondo cielo -->
-      <a-sky id="image-360" radius="10" src="imagenes/img_letras.webp"
+      <a-sky id="image-360" radius="10" src="" rotation="90 0 0"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
-             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade">
+             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"
+             >
       </a-sky>
 
       <!-- Camera + cursor. -------------------------------------------------------------->
       <a-entity camera look-controls>   
         <a-cursor  
             id="cursor"
+            color="grey"
             animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
             animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
             event-set__mouseenter="_event: mouseenter; color: springgreen"
-            event-set__mouseleave="_event: mouseleave; color: black"
+            event-set__mouseleave="_event: mouseleave; color: grey"
             raycaster="objects: .link">
         </a-cursor>
 
-        <a-plane
-          id="salir"
-          position="1.6 0.8 -1"
-          color="black"
-          width="0.1"
-          height="0.05"
-          begin="click"
-          >
-            <a-text
-                id="Textsalir" 
-                value="Exit" 
-                color="white"
-                width="1.1"
-                position="-0.05 0 0"
-                >
-            </a-text>
+        <a-plane id="salir" position="1.6 0.8 -1" color="black" width="0.1" height="0.05" begin="click">
+            <a-text id="Textsalir" value="Exit" color="white" width="1.1" position="-0.05 0 0"></a-text>
         </a-plane>
 
-        <a-plane
-          id="controles_estaticos"
-          position="-1.45 0.75 -1"
-          color="black"
-          width="0.4"
-          height="0.15"
-          >
-          <a-text
-                id="usuario" 
-                value="Usuario" 
-                color="white"
-                width="0.9"
-                position="-0.19 0.05 0"
-                >
-            </a-text>
+        <a-plane id="controles_estaticos" position="-1.45 0.75 -1" color="black" width="0.4" height="0.15">
+          <a-text id="usuario" value="Usuario" color="white" width="0.9" position="-0.19 0.05 0"></a-text>
         </a-plane>
-
       </a-entity>
-
-      
-
+     
       <!-- Image links. ------------------------------------------------------------------>
-      <a-entity id="links" layout="type: line; margin: 1.5" position="-1 -1 -4">
+      <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -1.6 -4">
         <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
       </a-entity>
         <!-- link Salir ------------------------------------------------------------------>
-      <a-plane
-          id="salir_x"
-          position="0 0.5 -1"
-          color="black"
-          width="0.1"
-          height="0.05"
-          class="link"
-          change-site="/AppEnglish/inicio.php"
-          >
-            <a-text
-                id="Textsalir_x" 
-                value="Exit" 
-                color="white"
-                width="1.1"
-                position="-0.05 0 0"
-                >
-            </a-text>
-        </a-plane>
+      <a-plane id="salir_x" position="1 0.5 -1" color="black" width="0.1" height="0.05" class="link" change-site="/AppEnglish/inicio.php">
+        <a-text id="Textsalir_x" value="Exit" color="white" width="1.1" position="-0.05 0 0"></a-text>
+      </a-plane>
+
+      <a-plane id="tablero" position="0 0.5 -3" color="grey" width="4" height="2.5">
+        <a-video src="#fondo_universo" width="3" height="2" position="0 0 0.1" autoPlay="true">
+
+        </a-video>
+      </a-plane>
+
+      
 
     </a-scene>
 
