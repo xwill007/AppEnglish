@@ -1,5 +1,24 @@
+
 <?php
-  
+ session_start();
+
+ require 'database.php';
+
+ if (isset($_SESSION['user_id'])) {
+   $records = $conn->prepare('SELECT id,name,email,password FROM users WHERE id = :id');
+   $records->bindParam(':id', $_SESSION['user_id']);
+   $records->execute();
+   $results = $records->fetch(PDO::FETCH_ASSOC);
+
+   $user = null;
+
+   $user = $results;
+    
+    //global $nombre;
+   $nombre = $user['name'];
+    
+ } 
+
 ?>
 
 <!DOCTYPE html>
@@ -31,31 +50,68 @@
 
     <script src="js/change-site.js"></script>
 
+    <script>
+      AFRAME.registerComponent('play-pause',{
+        init: function(){
+          var myVideo = document.querySelector('#video_1');
+          var videoControls = document.querySelector('#videoControls');
+          
+          this.el.addEventListener('click',function(){
+            if(myVideo.paused){
+              myVideo.play();
+              videoControls.setAttribute('src','#pause')
+            }else{
+              myVideo.pause();
+              videoControls.setAttribute('src','#play')
+            }
+
+          });
+
+        }
+      });
+    </script>
+
+    <script>
+      AFRAME.registerComponent('rename',{
+        init: function(){
+          var nombre_usuario= document.querySelector("#nombre_usuario");
+          var nombre= "<?php echo $nombre; ?>";
+          nombre_usuario.setAttribute('value',nombre);
+          //nombre_usuario.setAttribute('color','red');
+          console.log("nombre :" + nombre);
+          //mostra nombre ne consola para verificar/////////////////////////////////////////////
+          //var mySky = document.querySelector("#image-360");
+          //mySky.setAttribute("src",data.img);
+        }
+      });
+   </script>
+
 </head>
 
 <body>
-    <?php require 'partials/header.php' ?>
-    <?php if(empty($user)): ?>
-        <h1>Por favor inicie sesion</h1>
-        <a href="login.php">Ingresar</a> or
-        <a href="signup.php">Registrarse</a>
-    <?php endif; ?>
-
-    <a-scene>
+<?php if(!empty($user)): ?>  
+  <a-scene>
 
     <a-assets>
         <img id="city" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
         <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+        <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
         <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
+        <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
         <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-        <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+        
+
         <video id="fondo_universo" src="video/video_fondo.mp4" autoPlay="true" rotation="90 0 0"></video>
+        <video id="video_1" src="video/it wasnt me.mp4" autoPlay="true"></video>
+        <img id="play" src="imagenes/play.png">
+        <img id="pause" src="imagenes/pause.png">
+        <text id="nombre" color="grey" value="<?php $user['name']; ?>" >
+
       </a-assets>
 
       <!--360 Fondo cielo -->
-      <a-sky id="image-360" radius="10" src="" rotation="90 0 0"
+      <a-sky id="image-360" radius="10" src="#fondo_universo" loop="true"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"
              >
@@ -72,36 +128,38 @@
             event-set__mouseleave="_event: mouseleave; color: grey"
             raycaster="objects: .link">
         </a-cursor>
-
-        <a-plane id="salir" position="1.6 0.8 -1" color="black" width="0.1" height="0.05" begin="click">
-            <a-text id="Textsalir" value="Exit" color="white" width="1.1" position="-0.05 0 0"></a-text>
-        </a-plane>
-
-        <a-plane id="controles_estaticos" position="-1.45 0.75 -1" color="black" width="0.4" height="0.15">
-          <a-text id="usuario" value="Usuario" color="white" width="0.9" position="-0.19 0.05 0"></a-text>
-        </a-plane>
+          <!-- Imagn estatica. ------------------------------------------------------------------>
+          <a-plane id="estaticos" position="-1.45 0.75 -1" width="0.4" height="0.15" color="black" opacity="0">
+            <a-text id="nombre_usuario" color="white" width="1.2" position="-0.19 0.05 0" rename></a-text>
+          </a-plane>
       </a-entity>
      
       <!-- Image links. ------------------------------------------------------------------>
-      <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -1.6 -4">
+      <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -3 -4">
         <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
       </a-entity>
+
         <!-- link Salir ------------------------------------------------------------------>
-      <a-plane id="salir_x" position="1 0.5 -1" color="black" width="0.1" height="0.05" class="link" change-site="/AppEnglish/inicio.php">
-        <a-text id="Textsalir_x" value="Exit" color="white" width="1.1" position="-0.05 0 0"></a-text>
+      <a-plane id="salir_x" position="0 1 -1" color="black" width="0.15" height="0.1" class="link" change-site="/AppEnglish/inicio.php">
+        <a-text id="Textsalir_x" value="Exit" color="white" width="1.5" position="-0.07 0 0"></a-text>
       </a-plane>
 
-      <a-plane id="tablero" position="0 0.5 -3" color="grey" width="4" height="2.5">
-        <a-video src="#fondo_universo" width="3" height="2" position="0 0 0.1" autoPlay="true">
-
+        <!-- tablero. ------------------------------------------------------------------>
+      <a-plane id="tablero" position="0 0.5 -3" color="grey" width="7.4" height="4.2">
+        <a-video src="#video_1" width="7" height="4" position="0 0 0.1" autoplay="true">
+          <a-image id="videoControls" src="#pause" position="0 -1.6 0.5" scale="0.2 0.2 1" class="link" color="black" play-pause> </a-image>
         </a-video>
       </a-plane>
 
-      
-
     </a-scene>
 
+<?php endif; ?>
+<?php if(empty($user)): ?>
+      <h1>Por favor inicie sesion</h1>
+      <a href="login.php">Ingresar</a> or
+      <a href="signup.php">Registrarse</a>
+  <?php endif; ?>
 </body>
 </html>

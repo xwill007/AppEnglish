@@ -34,7 +34,6 @@ input[type="submit"]:hover {
 
 /* Header */
 header {
-  border-bottom: 2px solid rgb(12, 154, 248);
   width: 100%;
   text-align: center;
   padding-top: 0.6%;
@@ -62,8 +61,9 @@ a.rigth{
 
 strong.welcome{
   border: 2px solid rgb(12, 154, 248); 
-  font-size: large;
+  font-size: 200%;
   padding: 0.5%;
+  color:rgb(58, 29, 226);
 }
 
 .bg-gra-01 {
@@ -73,6 +73,12 @@ strong.welcome{
 h1{
   color:rgb(92, 66, 240);
   margin-bottom: 3%;
+}
+
+h2{
+  color:rgb(92, 66, 240);
+  margin-bottom: 3%;
+  font-size: 300%;
 }
 
 a.intro{
@@ -91,4 +97,23 @@ img.intro{
 
 p.mensaje{
   color:rgb(243, 16, 16);  
+}
+
+body.fondo{ 
+  background-image: linear-gradient(rgb(64, 0, 255), rgb(0, 0, 0)); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 700px; 
+}
+
+.item{
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 6%;
+}
+
+.item p{
+  font-size: 240%;
+  color: rgb(58, 54, 54);
 }
