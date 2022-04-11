@@ -89,7 +89,7 @@
 </head>
 
 <body>
-<?php if(!empty($user)): ?>  
+<?php  if(isset($_SESSION['auth'])):?>
   <a-scene>
 
     <a-assets>

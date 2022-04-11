@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	
 	if(!isset($_SESSION['auth'])){
 		header("Location: index.php?error=2");
 	}
@@ -26,8 +25,8 @@
 
 	// 4. Delete
 	else if (isset($_GET['borrar'])) {
-	    print("borrar action: ".$_GET['card']);
-		header("Location: crud/delete.php?card=".$_GET['card']);
+	    print("borrar action: ".$_GET['user']);
+		header("Location: crud/delete.php?user=".$_GET['user']);
 	}
 
 	else {
