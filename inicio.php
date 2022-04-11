@@ -1,6 +1,5 @@
 <?php
   session_start();
-
   require 'database.php';
 
   if (isset($_SESSION['user_id'])) {
@@ -39,7 +38,7 @@
   <?php if(!empty($user)): ?>
       <div  class="item"> 
           <h2>Karaoke Vr</h2>
-          <p>Aprende palabras y fraces nuevas con nuestros videos en Ingles y Español, sumergete en la realidad virtual y vive una experiencia Diferente.<br>
+          <p>Aprende palabras y fraces nuevas con nuestros videos en Ingles y Español, sumergete en la realidad virtual y vive una experiencia Diferente.<br><br>
           <a class="descripcion" href="vr360.php">click para ingresar al mundo vr360.</a>
           </p>
       </div>

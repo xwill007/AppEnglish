@@ -100,7 +100,7 @@ p.mensaje{
 }
 
 body.fondo{ 
-  background-image: linear-gradient(rgb(64, 0, 255), rgb(0, 0, 0)); 
+  background-image: linear-gradient(rgb(153, 153, 156), rgb(12, 8, 74)); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -114,6 +114,22 @@ body.fondo{
 }
 
 .item p{
-  font-size: 240%;
-  color: rgb(58, 54, 54);
+  font-size: 220%;
+  color: rgb(215, 214, 214);
+}
+
+.admin{
+  align-content: center;
+  padding: 2%;
+}
+
+.tabla_usuarios{
+  margin: 0 auto;
+  border: 2px solid rgb(12, 154, 248); 
+  margin-bottom: 3%;
+}
+
+.admin input[type="submit"]{
+  color: black;
+  width: 10%;
 }

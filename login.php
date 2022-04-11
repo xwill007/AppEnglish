@@ -1,6 +1,6 @@
 <?php
-  require_once "./database.php";
   /*
+  require_once "./database.php";
   $enlace = conexionDB();
 
   $consulta = "SELECT * FROM users WHERE email='".$_POST['email']."' AND password='".$_POST['password']."'";
