@@ -23,24 +23,24 @@
 
       <h1>Aprende ingles de forma divertida en Realidad Virtual</h1>
 
-      <div style="background:url(imagenes/gafas_vr.jpg); background-repeat: no-repeat; background-size: 500px;">
+      <div class="fondo_inicio" style="background:url(imagenes/gafas_vr.jpg);  background-position: center; background-repeat: no-repeat; background-size: cover; ">
 
-      <form action="login.php" method="post">
-        
-        <?php
-        if(isset($_GET['error'])){
-          if($_GET['error']==1){
-            print("<p class='error'>Verificar datos</p>");
-          }else if($_GET['error']==2){
-            print("<p class='error'>Debe iniciar sesion</p>");
+        <form action="login.php" method="post">
+          
+          <?php
+          if(isset($_GET['error'])){
+            if($_GET['error']==1){
+              print("<p class='error'>Verificar datos</p>");
+            }else if($_GET['error']==2){
+              print("<p class='error'>Debe iniciar sesion</p>");
+            }
           }
-        }
-        ?>
+          ?>
 
-        <input type="text" name="user" placeholder="Ingresar email" required>
-        <input type="password" name="pass" placeholder="Ingresar Contraseña" required><br>
-        <input type="submit" name="enviar" value="Ingresar">
-      </form>
+          <input id="email" type="text" name="user" placeholder="Ingresar email" required>
+          <input id="password" type="password" name="pass" placeholder="Ingresar Contraseña" required><br>
+          <input type="submit" name="enviar" value="Ingresar">
+        </form>
         
       <a href="signup.php" class="intro">Registrarse</a> 
 

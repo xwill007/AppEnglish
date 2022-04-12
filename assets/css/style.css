@@ -9,19 +9,20 @@ body {
 /* Input Forms*/
 input[type="text"], input[type="password"]{
   outline: none;
-  padding: 20px;
+  padding: 1%;
   display: block;
-  width: 300px;
+  width: 40%;
+  height: 3%;
   border-radius: 3px;
   border: 1px solid #eee;
-  margin: 20px auto;
+  margin: 3% auto;
 }
 
 input[type="submit"] {
-  padding: 10px;
+  padding: 1%;
   color: #fff;
   background: #0098cb;
-  width: 320px;
+  width: 40%;
   margin: 20px auto;
   margin-top: 0;
   border: 0;
@@ -84,9 +85,8 @@ h2{
 a.intro{
   color:rgb(175, 18, 18);
   padding: 1%;
-  font-size: 150%;
-  border: 1px solid rgb(12, 154, 248);
-  margin-left: 4%;
+  font-size: 100%;
+  border: 2px solid rgb(12, 154, 248);
   margin-top: 3%;
 }
 
@@ -133,3 +133,12 @@ body.fondo{
   color: black;
   width: 10%;
 }
+
+div.fondo_inicio{
+  border: 2px solid rgb(12, 165, 248); 
+  width: 60%;
+  height: 400px;
+  margin: 0 auto;
+  padding-top: 10%;
+}
+
