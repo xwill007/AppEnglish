@@ -33,8 +33,13 @@ class DB extends mysqli{
 	}
 	
 	function getUsuarios(){
-		$consulta = "SELECT * FROM users LIMIT 10";
+		$consulta = "SELECT * FROM users LIMIT 50";
 		//print($consulta."<br>");
+		return $this->query($consulta);
+	}
+
+	function getName($user){
+		$consulta = "SELECT name FROM users WHERE email='".$user."'";
 		return $this->query($consulta);
 	}
 

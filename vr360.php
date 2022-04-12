@@ -130,7 +130,7 @@
         </a-cursor>
           <!-- Imagn estatica. ------------------------------------------------------------------>
           <a-plane id="estaticos" position="-1.45 0.75 -1" width="0.4" height="0.15" color="black" opacity="0">
-            <a-text id="nombre_usuario" color="white" width="1.2" position="-0.19 0.05 0" rename></a-text>
+            <a-text id="nombre_usuario" color="white" width="1.2" position="-0.19 0.05 0" value="Usuario: <?php print($_SESSION['name'])?>" rename></a-text>
           </a-plane>
       </a-entity>
      
