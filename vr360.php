@@ -1,23 +1,7 @@
 
 <?php
  session_start();
-
- require 'database.php';
-
- if (isset($_SESSION['user_id'])) {
-   $records = $conn->prepare('SELECT id,name,email,password FROM users WHERE id = :id');
-   $records->bindParam(':id', $_SESSION['user_id']);
-   $records->execute();
-   $results = $records->fetch(PDO::FETCH_ASSOC);
-
-   $user = null;
-
-   $user = $results;
-    
-    //global $nombre;
-   $nombre = $user['name'];
-    
- } 
+ require_once "./controlador.php";
 
 ?>
 
@@ -75,8 +59,8 @@
       AFRAME.registerComponent('rename',{
         init: function(){
           var nombre_usuario= document.querySelector("#nombre_usuario");
-          var nombre= "<?php echo $nombre; ?>";
-          nombre_usuario.setAttribute('value',nombre);
+          var nombre= "<?php print($_SESSION['name'])?>";
+          nombre_usuario.setAttribute('value',"Usuario: "+nombre);
           //nombre_usuario.setAttribute('color','red');
           console.log("nombre :" + nombre);
           //mostra nombre ne consola para verificar/////////////////////////////////////////////
@@ -130,7 +114,7 @@
         </a-cursor>
           <!-- Imagn estatica. ------------------------------------------------------------------>
           <a-plane id="estaticos" position="-1.45 0.75 -1" width="0.4" height="0.15" color="black" opacity="0">
-            <a-text id="nombre_usuario" color="white" width="1.2" position="-0.19 0.05 0" value="Usuario: <?php print($_SESSION['name'])?>" rename></a-text>
+            <a-text id="nombre_usuario" color="white" width="1.2" position="-0.19 0.05 0" rename></a-text>
           </a-plane>
       </a-entity>
      

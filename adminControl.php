@@ -17,8 +17,8 @@ require_once "./controlador.php";
 
     <body class="fondo">
         <?php require 'partials/header.php' ?>
-       
-        <?php if(isset($_SESSION['auth'])):?>
+		
+        <?php if($_SESSION['admin']):?>
             <div  class="item"> 
                 <h2>Administracion</h2>
             </div>
@@ -43,7 +43,7 @@ require_once "./controlador.php";
 
                             while ($Usuario= $Respuesta->fetch_assoc()) {
                                 print("<tr>");
-                                    print("<td><input type='radio' name='user' value='".$Usuario['id']."'>.</td>");
+                                    print("<td><input type='radio' name='user' value='".$Usuario['id']."'></td>");
                                     print("<td>".$Usuario['id']."</td>");
                                     print("<td>".$Usuario['name']."</td>");
                                     print("<td>".$Usuario['email']."</td>");
@@ -62,10 +62,7 @@ require_once "./controlador.php";
 	    </section>
 
         <?php endif; ?> 
-        <?php if(!isset($_SESSION['auth'])):?>
-            <h1>Por favor inicie sesion</h1>
-            <a href="login.php">Ingresar</a> or
-            <a href="signup.php">Registrarse</a>
+        <?php if(!$_SESSION['admin']): header("Location: inicio.php");?>   
         <?php endif; ?> 
     </body>
 
