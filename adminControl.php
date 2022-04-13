@@ -24,32 +24,31 @@ require_once "./controlador.php";
             </div>
 
         <section class="admin">
+
             <form action="action.php" method="get">
                 <table border="1" class="tabla_usuarios">
                     <thead>
                         <tr>
                         <th>select</th>
                         <th>id</th>
-                        <th>Nombre</th>
-                        <th>Email</th>
-                        <th>password</th>
+                        <th>Titulo</th>
+                        <th>Autor</th>
+                        <th>link</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        
                             $db = db::getDBConnection();
-                            $Respuesta = $db->getUsuarios();
-
-                            while ($Usuario= $Respuesta->fetch_assoc()) {
+                            $Respuesta = $db->getSongs();
+                            while ($Song= $Respuesta->fetch_assoc()) {
                                 print("<tr>");
-                                    print("<td><input type='radio' name='user' value='".$Usuario['id']."'></td>");
-                                    print("<td>".$Usuario['id']."</td>");
-                                    print("<td>".$Usuario['name']."</td>");
-                                    print("<td>".$Usuario['email']."</td>");
-                                    print("<td>".$Usuario['password']."</td>");
+                                    print("<td><input type='radio' name='user' value='".$Song['id']."'></td>");
+                                    print("<td>".$Song['id']."</td>");
+                                    print("<td>".$Song['title']."</td>");
+                                    print("<td>".$Song['author']."</td>");
+                                    print("<td>".$Song['link']."</td>");
                                 print("</tr>");
-                            }
+                            }   
                         ?>
                     </tbody>
                 </table>

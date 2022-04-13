@@ -1,8 +1,15 @@
 
 <?php
  session_start();
- require_once "./controlador.php";
+ $nombre= $_SESSION['name'];
 
+ $numSong= "2";
+ require_once "./controlador.php";
+ $db = db::getDBConnection();
+ $titulo= $db->getTitleSong($numSong)->fetch_array()[0]??'';
+ $link= $db->getLinkSong($numSong)->fetch_array()[0]??'';
+
+ 
 ?>
 
 <!DOCTYPE html>
@@ -59,16 +66,30 @@
       AFRAME.registerComponent('rename',{
         init: function(){
           var nombre_usuario= document.querySelector("#nombre_usuario");
-          var nombre= "<?php print($_SESSION['name'])?>";
+          var nombre= "<?php echo $GLOBALS['nombre'];?>";
           nombre_usuario.setAttribute('value',"Usuario: "+nombre);
-          //nombre_usuario.setAttribute('color','red');
-          console.log("nombre :" + nombre);
+          console.log("nombre :" +nombre);
+
+          var titulo_video= document.querySelector("#titulo_video");
+          var titulo= "<?php echo $GLOBALS['titulo'];?>";
+          titulo_video.setAttribute('color','red');
+          titulo_video.setAttribute('value',"Titulo: "+titulo);
+          console.log("titulo :" +titulo);
           //mostra nombre ne consola para verificar/////////////////////////////////////////////
           //var mySky = document.querySelector("#image-360");
           //mySky.setAttribute("src",data.img);
         }
       });
    </script>
+   <script>
+      AFRAME.registerComponent('video-selected',{
+        init: function(){
+          
+        }
+      });
+   </script>
+
+
 
 </head>
 
@@ -87,7 +108,7 @@
         
 
         <video id="fondo_universo" src="video/video_fondo.mp4" autoPlay="true" rotation="90 0 0"></video>
-        <video id="video_1" src="video/it wasnt me.mp4" autoPlay="true"></video>
+        <video id="video_1" src="<?php echo $GLOBALS['link'];?>" autoplay="true"></video>
         <img id="play" src="imagenes/play.png">
         <img id="pause" src="imagenes/pause.png">
         <text id="nombre" color="grey" value="<?php $user['name']; ?>" >
@@ -113,13 +134,14 @@
             raycaster="objects: .link">
         </a-cursor>
           <!-- Imagn estatica. ------------------------------------------------------------------>
-          <a-plane id="estaticos" position="-1.45 0.75 -1" width="0.4" height="0.15" color="black" opacity="0">
-            <a-text id="nombre_usuario" color="white" width="1.2" position="-0.19 0.05 0" rename></a-text>
+          <a-plane id="estaticos" position="-1.40 0.75 -1" width="0.4" height="0.15" color="black" opacity="1">
+            <a-text id="nombre_usuario" color="white" width="1.0" position="-0.19 0.05 0" value="Usuario: " rename></a-text>
+            <a-text id="titulo_video" color="white" width="0.8" position="-0.19 0.00 0" value="Titulo: " ></a-text>
           </a-plane>
       </a-entity>
      
       <!-- Image links. ------------------------------------------------------------------>
-      <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -3 -4">
+      <a-entity id="links" layout="type: line; margin: 1.5" position="-1.5 -4 -4">
         <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
@@ -132,8 +154,10 @@
 
         <!-- tablero. ------------------------------------------------------------------>
       <a-plane id="tablero" position="0 0.5 -3" color="grey" width="7.4" height="4.2">
-        <a-video src="#video_1" width="7" height="4" position="0 0 0.1" autoplay="true">
-          <a-image id="videoControls" src="#pause" position="0 -1.6 0.5" scale="0.2 0.2 1" class="link" color="black" play-pause> </a-image>
+        <a-video src="#video_1" width="7" height="4" position="0 0 0.1" autoplay="true" video-selected>
+          <a-circle position="0 -2.3 0" radius="0.1" color="grey" opacity="1">
+            <a-image id="videoControls" src="#pause" position="0 0.05 0.1" scale="0.2 0.2 1" class="link" color="black" play-pause> </a-image>
+          </a-circle>
         </a-video>
       </a-plane>
 

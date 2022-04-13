@@ -34,7 +34,6 @@ class DB extends mysqli{
 	
 	function getUsuarios(){
 		$consulta = "SELECT * FROM users LIMIT 50";
-		//print($consulta."<br>");
 		return $this->query($consulta);
 	}
 
@@ -43,11 +42,22 @@ class DB extends mysqli{
 		return $this->query($consulta);
 	}
 
-	function getCard($cardName){
-		$consulta = "SELECT * FROM productos WHERE nombre='".$cardName."'";
-		print($consulta."<br>");
+	function getSongs(){
+		$consulta = "SELECT * FROM songs LIMIT 50";
 		return $this->query($consulta);
 	}
+	
+	function getTitleSong($id){
+		$consulta = "SELECT title FROM songs WHERE id='".$id."'";
+		return $this->query($consulta);
+	}
+
+	function getLinkSong($id){
+		$consulta = "SELECT link FROM songs WHERE id='".$id."'";
+		return $this->query($consulta);
+	}
+
+	
 
 	function createCard($cardName,$desc,$precio,$imagen){
 		$consulta = "INSERT INTO productos (nombre,descripcion,precio,imagen) VALUE("

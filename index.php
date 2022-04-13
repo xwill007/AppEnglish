@@ -19,7 +19,6 @@
   </head>
 
   <body class="bg-gra-01">
-      <?php require 'partials/header.php' ?>
 
       <h1>Aprende ingles de forma divertida en Realidad Virtual</h1>
 
