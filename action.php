@@ -7,8 +7,7 @@
 	//CRUD
 	//1. Create
 	if (isset($_GET['nuevo'])) {
-	    print("nuevo action: ".$_GET['card']);
-		header("Location: create.php");
+		header("Location: insertar.php");
 	}
 
 	//2. Read
@@ -25,8 +24,7 @@
 
 	// 4. Delete
 	else if (isset($_GET['borrar'])) {
-	    print("borrar action: ".$_GET['user']);
-		header("Location: crud/delete.php?user=".$_GET['user']);
+		header("Location: crud/delete.php?song=".$_GET['song']);
 	}
 
 	else {

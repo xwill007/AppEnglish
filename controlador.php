@@ -59,21 +59,20 @@ class DB extends mysqli{
 
 	
 
-	function createCard($cardName,$desc,$precio,$imagen){
-		$consulta = "INSERT INTO productos (nombre,descripcion,precio,imagen) VALUE("
-			."'".$cardName."', "
-			."'".$desc."', "
-			.$precio.", "
-			."'".$imagen."')";
-		print($consulta."<br>");
+	function createSong($titulo,$autor,$link){
+		$consulta = "INSERT INTO songs (title,author,link) VALUE("." '".$titulo."',"." '".$autor."',"." '".$link."')";
 		return $this->query($consulta);
 	}
 
-	function deleteUser($id){
-		$consulta = "DELETE FROM users WHERE id='".$id."'";
-		print($consulta."<br>");
+	function deleteSong($id){
+		$consulta = "DELETE FROM songs WHERE id='".$id."'";
 		return $this->query($consulta);
 	}
+
+
+
+
+
 
 	function updateCard($cardName, $newCardName,$desc,$precio,$imagen = ""){
 		if($imagen!=""){

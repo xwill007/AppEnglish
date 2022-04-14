@@ -6,15 +6,14 @@
 		header("Location: index.php?error=2");
 	}
 
-	$origen  = $_FILES['imagen']['tmp_name'];
-	$destino = "cards/".$_FILES['imagen']['name'];
-	move_uploaded_file($origen, "../".$destino);
+	
 
 	$db = db::getDBConnection();
-	$Respuesta = $db->createCard($_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$destino);
+	$Respuesta = $db->createSong($_POST['title'], $_POST['author'], $_POST['link']);
+
 	if(!$Respuesta){
-		header("Location: ../create.php?error=1");
+		header("Location: ../insertar.php?error=1");
 	}else {
-		header("Location: ../inicio.php");
+		header("Location: ../adminControl.php");
 	}
 ?>

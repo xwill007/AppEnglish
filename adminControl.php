@@ -42,7 +42,7 @@ require_once "./controlador.php";
                             $Respuesta = $db->getSongs();
                             while ($Song= $Respuesta->fetch_assoc()) {
                                 print("<tr>");
-                                    print("<td><input type='radio' name='user' value='".$Song['id']."'></td>");
+                                    print("<td><input type='radio' name='song' value='".$Song['id']."'></td>");
                                     print("<td>".$Song['id']."</td>");
                                     print("<td>".$Song['title']."</td>");
                                     print("<td>".$Song['author']."</td>");

@@ -9,9 +9,8 @@
 
 	$db = db::getDBConnection();
 
-	if (isset($_GET['user'])) {
-	    print("borrar action: ".$_GET['user']);
-		$Respuesta = $db->deleteuser($_GET['user']);
+	if (isset($_GET['song'])) {
+		$Respuesta = $db->deleteSong($_GET['song']);
 	}
 	
 	header("Location: ../adminControl.php");
