@@ -10,7 +10,8 @@ if (mysqli_num_rows($Respuesta)>0){
 	$_SESSION['user'] = $_POST['user'];
 	$Result = $db->getName($_POST['user']);
 	$nombre = $Result->fetch_array()[0]??'';
-	$_SESSION['name'] = $nombre; 
+	$_SESSION['name'] = $nombre;
+	$_SESSION['num'] = 0; 
 	$_SESSION['auth'] = true;
 	if($_SESSION['user'] == "admin@admin.com"){
 		$_SESSION['admin'] = true;

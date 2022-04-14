@@ -1,15 +1,12 @@
 
 <?php
  session_start();
- $nombre= $_SESSION['name'];
-
- $numSong= "17";
  require_once "./controlador.php";
+ $_SESSION['num']=$_GET['song'];
  $db = db::getDBConnection();
- $titulo= $db->getTitleSong($numSong)->fetch_array()[0]??'';
- $link= $db->getLinkSong($numSong)->fetch_array()[0]??'';
+ $titulo= $db->getTitleSong($_SESSION['num'])->fetch_array()[0]??'';
+ $link_video= $db->getLinkSong($_SESSION['num'])->fetch_array()[0]??'';
 
- 
 ?>
 
 <!DOCTYPE html>
@@ -63,10 +60,10 @@
     </script>
 
     <script>
-      AFRAME.registerComponent('rename',{
+      AFRAME.registerComponent('mostrar',{
         init: function(){
           var nombre_usuario= document.querySelector("#nombre_usuario");
-          var nombre= "<?php echo $GLOBALS['nombre'];?>";
+          var nombre= "<?php echo $_SESSION['name'];?>";
           nombre_usuario.setAttribute('value',"Usuario: "+nombre);
           console.log("nombre :" +nombre);
 
@@ -75,19 +72,16 @@
           titulo_video.setAttribute('color','red');
           titulo_video.setAttribute('value',"Titulo: "+titulo);
           console.log("titulo :" +titulo);
-          //mostra nombre ne consola para verificar/////////////////////////////////////////////
-          //var mySky = document.querySelector("#image-360");
-          //mySky.setAttribute("src",data.img);
+
+          var id_video= document.querySelector("#id_video");
+          var id_num= "<?php echo $_SESSION['num'];?>";
+          id_video.setAttribute('value',"id: " +id_num);
+          console.log("id_video:" +id_num);
         }
       });
    </script>
-   <script>
-      AFRAME.registerComponent('video-selected',{
-        init: function(){
-          
-        }
-      });
-   </script>
+
+   
 
 
 
@@ -108,10 +102,11 @@
         
 
         <video id="fondo_universo" src="video/video_fondo.mp4" autoPlay="true" rotation="90 0 0"></video>
-        <video id="video_1" src="<?php echo $GLOBALS['link'];?>" autoplay="true"></video>
+        <video id="video_1" src="<?php echo $GLOBALS['link_video'];?>" autoplay="true"></video>
         <img id="play" src="imagenes/play.png">
         <img id="pause" src="imagenes/pause.png">
         <text id="nombre" color="grey" value="<?php $user['name']; ?>" >
+        <img id="next" src="imagenes/navigation_simple.png">
 
       </a-assets>
 
@@ -134,9 +129,10 @@
             raycaster="objects: .link">
         </a-cursor>
           <!-- Imagn estatica. ------------------------------------------------------------------>
-          <a-plane id="estaticos" position="-1.40 0.75 -1" width="0.4" height="0.15" color="black" opacity="1">
-            <a-text id="nombre_usuario" color="white" width="1.0" position="-0.19 0.05 0" value="Usuario: " rename></a-text>
+          <a-plane id="estaticos" position="-1.40 0.75 -1" width="0.4" height="0.15" color="black" opacity="1" mostrar>
+            <a-text id="nombre_usuario" color="white" width="1.0" position="-0.19 0.05 0" value="Usuario: " ></a-text>
             <a-text id="titulo_video" color="white" width="0.8" position="-0.19 0.00 0" value="Titulo: " ></a-text>
+            <a-text id="id_video" color="white" width="0.8" position="-0.19 -0.05 0" value="Id: " ></a-text>
           </a-plane>
       </a-entity>
      
@@ -159,6 +155,7 @@
             <a-image id="videoControls" src="#pause" position="0 0.05 0.1" scale="0.2 0.2 1" class="link" color="black" play-pause> </a-image>
           </a-circle>
         </a-video>
+        <a-image id="nextSong" src="#next" position="3.3 -1.8 0.2" scale="0.2 0.2 1" class="link" nextsong></a-image>
       </a-plane>
 
     </a-scene>
@@ -171,3 +168,5 @@
   <?php endif; ?>
 </body>
 </html>
+
+

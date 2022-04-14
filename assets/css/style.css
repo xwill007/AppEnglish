@@ -114,13 +114,17 @@ body.fondo{
 .item{
   width: 50%;
   margin-left: 25%;
-  margin-top: 6%;
+  margin-top: 3%;
   border: 2px solid rgb(12, 154, 248);
 }
 
 .item p{
   font-size: 220%;
   color: rgb(215, 214, 214);
+}
+
+.item td{
+  color: rgb(215, 214, 214); 
 }
 
 .admin{
@@ -132,6 +136,7 @@ body.fondo{
   margin: 0 auto;
   border: 2px solid rgb(12, 154, 248); 
   margin-bottom: 3%;
+  color: gray;
 }
 
 .admin input[type="submit"]{
@@ -147,4 +152,12 @@ div.fondo_inicio{
   padding-top: 10%;
 }
 
+div.lista {
+  border: 2px solid rgb(12, 165, 248); 
+}
 
+form #inicio{
+  float: right;
+  border: 2px solid rgb(12, 165, 248);
+  color: white;
+}
