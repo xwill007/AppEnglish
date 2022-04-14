@@ -6,6 +6,10 @@ body {
   text-align: center;
 }
 
+label{
+  color: rgb(255, 255, 255);
+}
+
 /* Input Forms*/
 input[type="text"], input[type="password"]{
   outline: none;
@@ -104,13 +108,14 @@ body.fondo{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 700px; 
+  height: 900px; 
 }
 
 .item{
   width: 50%;
   margin-left: 25%;
   margin-top: 6%;
+  border: 2px solid rgb(12, 154, 248);
 }
 
 .item p{
@@ -141,4 +146,5 @@ div.fondo_inicio{
   margin: 0 auto;
   padding-top: 10%;
 }
+
 

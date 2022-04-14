@@ -1,53 +1,40 @@
-<?php
-	require_once "../controlador.php";
-
-	session_start();
-	if(!isset($_SESSION['auth'])){
-		header("Location: index.php?error=2");
-	}
-?>
+<?php require '../partials/adminSecurity.php' ?>
+<?php require_once "../controlador.php"; ?>
 
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Detalle</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Ejemplo6 - PHP: Sesion</title>
+	<link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body>
-	<header>
-		<h1>Detalles (READ)</h1>
-		<h3>Bienvenido <?php print($_SESSION['user']);?></h3>
-		<a href="logout.php">Cerrar sesion</a>
 
-		<nav>
-			<ul>
-				<li><a href="../inicio.php">Inicio</a></li>
-			</ul>
-		</nav>
-	</header>
-	<section>
-		<table border="1">
+<body class="fondo">
+
+	<h1>(DETALLES)</h1>	
+	<a href="../adminControl.php">ir al Panel de Administracion</a>
+	<section class="item">
+
+		<table class="tabla_usuarios"  border="1">
 			<thead>
 				<tr>
-				<th>id</th>
-				<th>Nombre</th>
-				<th>Descripcion</th>
-				<th>Precio</th>
-				<th>Imagen</th>
+				<th>Id</th>
+				<th>Titulo</th>
+				<th>Autor</th>
+				<th>Link</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
 					$db = db::getDBConnection();
-					$Respuesta = $db->getCard($_GET['card']);
-					while ($Card = $Respuesta->fetch_assoc()) {
+					$Respuesta = $db->getSong($_GET['song']);
+					while ($Song = $Respuesta->fetch_assoc()) {
 						print("<tr>");
-							print("<td>".$Card['id']."</td>");
-							print("<td>".$Card['nombre']."</td>");
-							print("<td>".$Card['descripcion']."</td>");
-							print("<td>".$Card['precio']."</td>");
-							print("<td><img src='../".$Card['imagen']."' width=150px></td>");
+							print("<td>".$Song['id']."</td>");
+							print("<td>".$Song['title']."</td>");
+							print("<td>".$Song['author']."</td>");
+							print("<td>".$Song['link']."</td>");
 						print("</tr>");
 					}
 				?>

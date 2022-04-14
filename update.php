@@ -1,18 +1,13 @@
-<?php
-	require_once "./controlador.php";
-
-	session_start();
-	if(!isset($_SESSION['auth'])){
-		header("Location: index.php?error=2");
-	}
-?>
+<?php require 'partials/adminSecurity.php' ?>
+<?php require_once "./controlador.php" ?>
 
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Actualizar</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Actualizar</title>
+	<link rel="stylesheet" href="assets/css/style.css">
 	<style type="text/css">
 		p.error{
 			font-size: 8px;
@@ -20,20 +15,14 @@
 		}
 	</style>
 </head>
-<body>
+
+<body class="bg-gra-01">
 	<header>
 		<h1>Actualizar (UPDATE)</h1>
-		<h3>Bienvenido <?php print($_SESSION['user']);?></h3>
-
 		<a href="adminControl.php">ir al panel de administracion</a>
 
-		<nav>
-			<ul>
-				<li><a href="inicio.php">Inicio</a></li>
-			</ul>
-		</nav>
 	</header>
-	<section>
+	<section class="item">
 		<?php
 		if(isset($_GET['error'])){
 			if($_GET['error']==1){
@@ -42,7 +31,7 @@
 		}
 		?>
 
-		<form action="crud/update.php" enctype="multipart/form-data" method="POST">
+		<form action="crud/update.php" enctype="multipart/form-data" method="POST" class="update">
 			<?php
 				$db = db::getDBConnection();
 				$Respuesta = $db->getSong($_GET['song']);

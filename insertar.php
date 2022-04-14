@@ -1,16 +1,13 @@
-<?php
-	session_start();
-	if(!isset($_SESSION['auth'])){
-		header("Location: index.php?error=2");
-	}
-?>
+<?php require 'partials/adminSecurity.php' ?>
 
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Insertar</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Insertar</title>
+	<link rel="stylesheet" href="assets/css/style.css">
+	
 	<style type="text/css">
 		p.error{
 			font-size: 8px;
@@ -18,19 +15,11 @@
 		}
 	</style>
 </head>
-<body>
-	<header>
-		<h1>(INSETRAR CANCIÓN)</h1>
-		<h3>Bienvenido <?php print($_SESSION['user']);?></h3>
-		<a href="adminControl.php">ir al Panel de Administracion</a>
-		<nav>
-			<ul>
-				<li><a href="inicio.php">Inicio</a></li>
-			</ul>
-		</nav>
-	</header>
 
-	<section>
+<body class="fondo">	
+	<h1>(INSETRAR CANCIÓN)</h1>
+	<a href="adminControl.php">ir al Panel de Administracion</a>
+	<section class="item">
 		<?php
 		if(isset($_GET['error'])){
 			if($_GET['error']==1){

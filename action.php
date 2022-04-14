@@ -4,7 +4,6 @@
 		header("Location: index.php?error=2");
 	}
 
-	//CRUD
 	//1. Create
 	if (isset($_GET['nuevo'])) {
 		header("Location: insertar.php");
@@ -12,8 +11,7 @@
 
 	//2. Read
 	else if (isset($_GET['detalles'])) {
-	    print("detalles action: ".$_GET['card']);
-		header("Location: crud/read.php?card=".$_GET['card']);
+		header("Location: crud/read.php?song=".$_GET['song']);
 	}
 
 	//3. Update

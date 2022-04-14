@@ -1,9 +1,5 @@
-<?php
-session_start();
-
-require_once "./controlador.php";
-
-?>
+<?php require 'partials/adminSecurity.php' ?>
+<?php require_once "./controlador.php" ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,13 +8,12 @@ require_once "./controlador.php";
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="assets/css/style.css">
-        <title>Document</title>
+        <title>Consola Admin</title>
     </head>
 
     <body class="fondo">
         <?php require 'partials/header.php' ?>
 		
-        <?php if($_SESSION['admin']):?>
             <div  class="item"> 
                 <h2>Administracion</h2>
             </div>
@@ -26,7 +21,7 @@ require_once "./controlador.php";
         <section class="admin">
 
             <form action="action.php" method="get">
-                <table border="1" class="tabla_usuarios">
+                <table class="tabla_usuarios" border="1">
                     <thead>
                         <tr>
                         <th>select</th>
@@ -52,17 +47,16 @@ require_once "./controlador.php";
                         ?>
                     </tbody>
                 </table>
-                
-                <input type="submit" name="borrar" value="Borrar">
-                <input type="submit" name="actualizar" value="Actualizar">
-                <input type="submit" name="detalles" value="Detalles">
                 <input type="submit" name="nuevo" value="Nuevo">
+                <input type="submit" name="detalles" value="Detalles">
+                <input type="submit" name="actualizar" value="Actualizar">
+                <input type="submit" name="borrar" value="Borrar">
+                
+                
             </form>
 	    </section>
 
-        <?php endif; ?> 
-        <?php if(!$_SESSION['admin']): header("Location: inicio.php");?>   
-        <?php endif; ?> 
+        
     </body>
 
 </html>
