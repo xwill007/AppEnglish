@@ -18,8 +18,7 @@
 
 	//3. Update
 	else if (isset($_GET['actualizar'])) {
-	    print("actualizar action: ".$_GET['card']);
-		header("Location: update.php?card=".$_GET['card']);
+		header("Location: update.php?song=".$_GET['song']);
 	}
 
 	// 4. Delete

@@ -7,18 +7,11 @@
 	}
 
 	$db = db::getDBConnection();
-	$destino = "";
-	if(isset($_FILES['imagen']) && $_FILES['imagen']['name']!=""){
-		$origen  = $_FILES['imagen']['tmp_name'];
-		$destino = "cards/".$_FILES['imagen']['name'];
-		move_uploaded_file($origen, "../".$destino);
-	}
-
-	$Respuesta = $db->updateCard($_POST['card'],$_POST['nombre'],$_POST['descripcion'],$_POST['precio'],$destino);
+	$Respuesta = $db->updateSong($_POST['song'],$_POST['id'],$_POST['titulo'],$_POST['autor'],$_POST['link']);
 
 	if(!$Respuesta){
-		header("Location: ../update.php?card=".$_POST['nombre']."&error=1");
+		header("Location: ../update.php?song=".$_POST['song']."&error=1");
 	}else {
-		header("Location: ../inicio.php");
+		header("Location: ../adminControl.php");
 	}
 ?>

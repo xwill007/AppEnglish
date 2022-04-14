@@ -46,6 +46,12 @@ class DB extends mysqli{
 		$consulta = "SELECT * FROM songs LIMIT 50";
 		return $this->query($consulta);
 	}
+
+	function getSong($id){
+		$consulta = "SELECT * FROM songs WHERE id='".$id."'";
+		//print($consulta."<br>");
+		return $this->query($consulta);
+	}
 	
 	function getTitleSong($id){
 		$consulta = "SELECT title FROM songs WHERE id='".$id."'";
@@ -57,7 +63,6 @@ class DB extends mysqli{
 		return $this->query($consulta);
 	}
 
-	
 
 	function createSong($titulo,$autor,$link){
 		$consulta = "INSERT INTO songs (title,author,link) VALUE("." '".$titulo."',"." '".$autor."',"." '".$link."')";
@@ -65,31 +70,19 @@ class DB extends mysqli{
 	}
 
 	function deleteSong($id){
-		$consulta = "DELETE FROM songs WHERE id='".$id."'";
+		$consulta = "DELETE FROM songs WHERE id='".$id."' ";
 		return $this->query($consulta);
 	}
 
 
+	function updateSong($song,$id,$titulo,$autor,$ubicacion){
+		$consulta = "UPDATE songs SET "
+		." id= '".$id."',"
+		." title= '".$titulo."', "
+		." author= '".$autor."', "
+		." link= '".$ubicacion."' "
 
-
-
-
-	function updateCard($cardName, $newCardName,$desc,$precio,$imagen = ""){
-		if($imagen!=""){
-			$consulta = "UPDATE productos SET "
-			."nombre='".$newCardName."',"
-			."descripcion='".$desc."', "
-			."precio=".$precio.", "
-			."imagen='".$imagen."' "
-			."WHERE nombre='".$cardName."'";
-		} else {
-			$consulta = "UPDATE productos SET "
-			."nombre='".$newCardName."',"
-			."descripcion='".$desc."', "
-			."precio=".$precio." "
-			."WHERE nombre='".$cardName."'";
-		}
-		print($consulta."<br>");
+		." WHERE id= '".$song."' ";
 		return $this->query($consulta);
 	}
 
