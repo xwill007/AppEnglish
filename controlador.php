@@ -26,6 +26,12 @@ class DB extends mysqli{
         return self::$instance;		
 	}
 
+	function createUser($name,$email,$password){
+		//$passCrypt= password_hash($password, PASSWORD_BCRYPT);
+		$consulta = "INSERT INTO users (name,email,password) VALUE("." '".$name."',"." '".$email."',"." '".$password."')";
+		return $this->query($consulta);
+	}
+
 	function getUser($user,$pass){
 		$consulta = "SELECT * FROM users WHERE email='".$user."' AND password='".$pass."'";
 		//print($consulta."<br>");

@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="css/style.css">
         <title>Consola Admin</title>
     </head>
 
@@ -21,7 +21,7 @@
         <section class="admin">
 
             <form action="action.php" method="get">
-                <table class="tabla_usuarios" border="1">
+                <table class="tabla_canciones" border="1">
                     <thead>
                         <tr>
                         <th>select</th>

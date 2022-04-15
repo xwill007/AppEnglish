@@ -7,7 +7,7 @@
 	<title>Detalle</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../assets/css/style.css">
+	<link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body class="fondo">
@@ -16,7 +16,7 @@
 	<a href="../adminControl.php">ir al Panel de Administracion</a>
 	<section class="item">
 
-		<table class="tabla_usuarios"  border="1">
+		<table class="tabla_canciones"  border="1">
 			<thead>
 				<tr>
 				<th>Id</th>

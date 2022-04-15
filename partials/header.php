@@ -9,8 +9,5 @@
     <strong class="welcome">Welcome <?php print($_SESSION['name'])?> </strong>
   <?php endif; ?> 
 
-  <?php if(!empty($message)): ?>
-      <p class="mensaje"> <br> <?= $message ?></p>
-  <?php endif; ?>
 
 </header>
