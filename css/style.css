@@ -169,7 +169,8 @@ div.descripcion{
 }
 
 div.lista_seleccion{
-  width: 25%;
+  border: 2px solid rgb(255, 0, 0);
+  width: 27%;
   float:right; 
   margin-right: 8%; 
 }
@@ -186,9 +187,10 @@ div.lista_seleccion{
 }
 
 .tabla_canciones{
+  border: 2px solid rgb(255, 0, 0); 
   color: rgb(255, 255, 255);
   margin-bottom: 6%;
-  width: 100%;
+  width: 90%;
 }
 
 .tabla_canciones td{
@@ -221,9 +223,9 @@ form.update{
   color: white;
 }
 
-input[name="song"]{
+input[name="song"][type="text"]{
   border: 2px solid rgb(12, 165, 248);
-  display: none
+  display: none;
 }
 
 
