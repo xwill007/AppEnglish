@@ -1,0 +1,311 @@
+/* General */
+html{
+  background-color: black;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family:"Helvetica Neue",Helvetica,Arial;
+  
+  text-align: center;
+}
+
+body.index{
+  background: linear-gradient(to top, #0e0864 0%, #000000 100%);
+  background-repeat: no-repeat;
+  height: 100%;
+  padding-bottom: 6%;
+  text-align: center;
+}
+
+div.titulo_principal h1{
+  color:rgb(40, 54, 202);
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+div.fondo_index{
+  border: 2px solid rgb(12, 165, 248); 
+  width: 100%;
+  min-height: 500px;
+  margin: 0 auto;
+  padding-top: 10%; 
+  background-image:url(../imagenes/gafas_vr.jpg);
+  background-position: center;background-repeat: no-repeat;background-size: cover;
+  align-content: center;
+}
+
+div.fondo_index form{ 
+  border: 2px solid rgb(12, 154, 248); 
+  height: 100%;
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 2%;
+}
+
+div.fondo_index input{
+  width: 70%;
+}
+
+div.fondo_index a{
+  padding: 0.5%;
+  color:rgb(175, 18, 18);
+  font-size: 100%;
+  margin-top: 5%;
+}
+
+div.error{
+  color:rgb(254, 0, 0);
+  font-size: larger;
+  font-style: italic;
+}
+
+body.registro{ 
+  text-align:center;
+  background: linear-gradient(to top, #0e0864 0%, #000000 100%);
+}
+
+label{
+  color: rgb(255, 255, 255);
+}
+
+.icon-person{
+  font-size: 100px;
+  padding:0;
+  margin:0;
+}
+
+/* Input Forms*/
+input[type="text"], input[type="password"]{
+  outline: none;
+  padding: 1%;
+  display: block;
+  width: 40%;
+  height: 3%;
+  border-radius: 3px;
+  border: 1px solid #eee;
+  margin: 2% auto;
+}
+
+input[type="submit"] {
+  padding: 1%;
+  color: #fff;
+  background: #0098cb;
+  width: 40%;
+  margin: 20px auto;
+  margin-top: 0;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: #0004eb;
+}
+
+/* Header */
+header {
+  width: 100%;
+  text-align: center;
+  padding-top: 0.6%;
+  padding-bottom: 1.5%;
+  margin-top: 0.5%;
+}
+
+header a {
+  text-decoration: none;
+  color:rgb(76, 47, 241);
+  padding: 0.2%;
+}
+
+a.left{
+  float: left;
+  margin-left: 1%;
+  border: 2px solid rgb(12, 154, 248);
+}
+
+a.rigth{
+  float: right;
+  margin-right: 3%;
+  border: 2px solid rgb(12, 154, 248);
+}
+
+strong.welcome{
+  border: 2px solid rgb(12, 154, 248); 
+  font-size: 200%;
+  padding: 0.5%;
+  color:rgb(58, 29, 226);
+}
+
+.fondo-inicio{
+  background:url(../imagenes/fondo-karaoke.jpg); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px solid rgb(12, 154, 248); 
+  width: 100%;
+  height: 100%;
+  min-height: 800px;
+}
+
+div.inicio{
+  align-content: center;
+}
+
+h2.inicio{ 
+  font-size: 500%;
+  color:#2b08c4;
+  width: 40%;
+  margin: 0 auto;
+  padding-top: 5%;
+}
+
+
+div.descripcion{
+  width: 40%;
+  float: left;
+  color: white;
+  font-size: 200%;
+  margin-left: 25%;
+}
+
+div.lista_seleccion{
+  border: 2px solid rgb(255, 0, 0);
+  width: 27%;
+  float:right; 
+  margin-right: 8%; 
+}
+
+.clear{
+  clear:both;  
+}
+
+
+@media screen and (max-width: 800px) {
+	div.lista_seleccion{
+		width: 100%;
+	}
+}
+
+.tabla_canciones{
+  border: 2px solid rgb(255, 0, 0); 
+  color: rgb(255, 255, 255);
+  margin-bottom: 6%;
+  width: 90%;
+}
+
+.tabla_canciones td{
+  border: 2px solid rgb(12, 154, 248); 
+}
+
+.descripcion strong{
+  color:#0098cb;
+}
+
+
+.bg-gra-01 {
+  background: linear-gradient(to top, #0e0864 0%, #000000 100%);
+}
+
+h1{
+  color:rgb(92, 66, 240);
+  margin-bottom: 3%;
+}
+
+h2{
+  color:rgb(92, 66, 240);
+  margin-bottom: 3%;
+  font-size: 300%;
+}
+
+
+form.update{
+  border: 2px solid rgb(12, 165, 248);
+  color: white;
+}
+
+input[name="song"][type="text"]{
+  border: 2px solid rgb(12, 165, 248);
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+a.intro{
+  color:rgb(0, 0, 0);
+  padding: 1%;
+  font-size: 100%;
+  border: 2px solid rgb(12, 154, 248);
+  margin-top: 3%;
+}
+
+img.intro{
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+p.mensaje{
+  color:rgb(243, 16, 16);  
+}
+
+
+
+body.fondo{ 
+  background-image: linear-gradient(rgb(153, 153, 156), rgb(12, 8, 74)); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 900px; 
+}
+
+.item{
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 3%;
+  border: 2px solid rgb(12, 154, 248);
+}
+
+.item p{
+  font-size: 220%;
+  color: rgb(215, 214, 214);
+}
+
+.item td{
+  color: rgb(215, 214, 214); 
+}
+
+.admin{
+  align-content: center;
+  padding: 2%;
+}
+
+.tabla_usuarios{
+  margin: 0 auto;
+  border: 2px solid rgb(12, 154, 248); 
+  margin-bottom: 3%;
+  color: gray;
+}
+
+.admin input[type="submit"]{
+  color: black;
+  width: 10%;
+}
+
+div.fondo_inicio{
+  border: 2px solid rgb(12, 165, 248); 
+  width: 60%;
+  height: 400px;
+  margin: 0 auto;
+  padding-top: 10%;
+}
+
+div.lista {
+  border: 2px solid rgb(12, 165, 248); 
+}
+

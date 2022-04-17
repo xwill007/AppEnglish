@@ -9,8 +9,6 @@ AFRAME.registerComponent('change-site',{
 
         el.addEventListener("mouseenter",function(){ 
             window.location="/AppEnglish/inicio.php";
-            //var mySky = document.querySelector("#image-360");
-            //mySky.setAttribute("src",data.img);
         });
     }
 
